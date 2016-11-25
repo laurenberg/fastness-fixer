@@ -179,95 +179,6 @@ ol > li::before {
   text-decoration: none;
 }
 
-.btn {
-  cursor: pointer;
-  display: inline-block;
-  padding: .375em .75em .42em;
-  background-color: #333;
-  border-radius: 8px;
-  border: 3px solid #333;
-  color: #fff;
-  text-decoration: none;
-}
-
-.btn:focus,
-.btn:hover {
-  background-color: #000;
-  border-color: #000;
-  color: #fff;
-}
-
-.btn-light, .btn--light {
-  background-color: #e2e2e2;
-  border-color: #e2e2e2;
-  color: #000;
-}
-
-.btn-light:focus,
-.btn-light:hover,
-.btn--light:focus,
-.btn--light:hover {
-  background-color: #666;
-  border-color: #666;
-  color: #fff;
-}
-
-.btn-ghost,
-.btn--ghost {
-  background-color: transparent;
-  border-color: #333;
-  color: #000;
-}
-
-.btn-ghost:focus,
-.btn-ghost:hover,
-.btn--ghost:focus,
-.btn--ghost:hover {
-  background-color: #e2e2e2;
-  border-color: #000;
-  color: #000;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-button,
-input {
-  overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-
 label,
 .label-block {
   display: block;
@@ -280,7 +191,7 @@ input[type="radio"] + label,
   display: inline-block;
 }
 
-a:hover, a:active {
+a, a:hover, a:active {
   outline: none;
 }
 
@@ -299,56 +210,43 @@ a:focus, [tabindex="0"]:focus {
   outline-offset: 3px;
 }
 
+*, *::before, *::after, *::first-letter, *::first-line {
+  background: none transparent;
+  color: #000;
+  box-shadow: none;
+  text-shadow: none;
+}
 
+a[href]::after {
+  content: " (" attr(href) ")";
+}
 
-  /* stylelint-disable declaration-no-important */
+abbr[title]::after {
+  content: " (" attr(title) ")";
+}
 
-  *, *::before, *::after, *::first-letter, *::first-line {
-    background: none transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+a[href^="#"]::after,
+a[href^="javascript:"]::after {
+  content: "";
+}
 
-  /* stylelint-enable */
+pre, blockquote {
+  page-break-inside: avoid;
+}
 
-  a, a:visited {
-    text-decoration: underline;
-  }
+thead {
+  display: table-header-group;
+}
 
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
+tr, img {
+  page-break-inside: avoid;
+}
 
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
+p, h1, h2, h3, h4, h5, h6 {
+  orphans: 3;
+  widows: 3;
+}
 
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre, blockquote {
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  tr, img {
-    page-break-inside: avoid;
-  }
-
-  p, h1, h2, h3, h4, h5, h6 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
-  }
-
-  /* End HTML5 Boilerplate code */
-
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid;
+}
